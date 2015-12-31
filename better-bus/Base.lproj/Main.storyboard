@@ -84,6 +84,60 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
+        <!--fourth-->
+        <scene sceneID="k6l-Da-dBc">
+            <objects>
+                <viewController id="ckS-mK-cUX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uno-vI-aUL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bp5-bq-iUU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aVS-LY-iuf" customClass="FourthViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fourth View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9U-eu-3HQ">
+                                <rect key="frame" x="220" y="222" width="174" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="fourth" image="fourth" id="qgW-vg-Qcs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djd-3D-S6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-260" y="983"/>
+        </scene>
+        <!--Third-->
+        <scene sceneID="S1b-15-pmb">
+            <objects>
+                <viewController id="ydZ-3i-t8L" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H7D-AE-w4A"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lvs-Pj-Lzp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VJe-vI-agN" customClass="ThirdViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Third View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf8-nX-Xmy">
+                                <rect key="frame" x="174" y="204" width="167" height="79"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Third" image="third" id="6y8-vt-Mhb" customClass="Third"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DfF-lo-XWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676" y="1004"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -97,6 +151,8 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="ckS-mK-cUX" kind="relationship" relationship="viewControllers" id="YN8-PZ-gXj"/>
+                        <segue destination="ydZ-3i-t8L" kind="relationship" relationship="viewControllers" id="KcR-mp-Fsk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -106,6 +162,8 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="fourth" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <image name="third" width="30" height="30"/>
     </resources>
 </document>
