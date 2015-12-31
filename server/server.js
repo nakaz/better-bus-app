@@ -20,7 +20,7 @@ var parser = new xml2js.Parser();
 fs.readFile(__dirname + '/../playgroundfiles/arrivals.xml', function (err, data){
   parser.parseString(data, function (err, result){
     console.dir(JSON.stringify(result));
-    fs.writeFile(__dirname + '/../playgroundfiles/arrivals.json', JSON.stringify(result, undefined, 2), function (err) {
+    fs.writeFile(__dirname + '/../playgroundfiles/arrivals.json', JSON.stringify(result), function (err) {
       if (err) throw err;
       console.log('JSON file written!');
     });
