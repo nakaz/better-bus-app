@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
-var router = express.Router();
 var fs = require('fs');
 var config = require('../config/config.json');
+
+var route = require('./routes/index');
 
 var xml2js = require('xml2js');
 
@@ -13,6 +14,8 @@ var PORT = config.port;
 // app.get('/', function (req, res) {
 //   res.send('Hello World!');
 // });
+
+app.use('/', route.arrivals);
 
 var parser = new xml2js.Parser();
 
