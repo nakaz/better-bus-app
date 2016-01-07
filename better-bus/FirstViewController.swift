@@ -9,16 +9,19 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    func helloWorld(name: String) -> String {
+      let greeting = "Hello, " + name + "!"
+      return greeting
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    print(helloWorld("Sean"))
+    print(helloWorld("Tony"))
+    print(helloWorld("Jesse"))
+    print(helloWorld("Vic"))
+  }
 
 
 }
