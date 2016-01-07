@@ -159,6 +159,7 @@
 		B4D89D151C34EBB000790F7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Sean Nakamura";
 				TargetAttributes = {
@@ -415,6 +416,7 @@
 				B4D89D401C34EBB100790F7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B4D89D411C34EBB100790F7F /* Build configuration list for PBXNativeTarget "better-busTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +425,7 @@
 				B4D89D431C34EBB100790F7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
