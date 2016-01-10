@@ -17,6 +17,8 @@
 		B4F6BFF91C426486008BD53B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6BFF81C426486008BD53B /* Alamofire.framework */; };
 		B4F6BFFA1C42648A008BD53B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6BFF81C426486008BD53B /* Alamofire.framework */; };
 		B4F6BFFB1C42648A008BD53B /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6BFF81C426486008BD53B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4F6BFFE1C427069008BD53B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6BFFD1C427069008BD53B /* SwiftyJSON.framework */; };
+		B4F6BFFF1C427069008BD53B /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6BFFD1C427069008BD53B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B4F6BFFF1C427069008BD53B /* SwiftyJSON.framework in Embed Frameworks */,
 				B4F6BFFB1C42648A008BD53B /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -56,6 +59,7 @@
 		B4D89D391C34EBB100790F7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4D89D3A1C34EBB100790F7F /* better_busTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = better_busTests.swift; sourceTree = "<group>"; };
 		B4F6BFF81C426486008BD53B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = lib/Alamofire.framework; sourceTree = "<group>"; };
+		B4F6BFFD1C427069008BD53B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = lib/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 			files = (
 				B4F6BFF91C426486008BD53B /* Alamofire.framework in Frameworks */,
 				B4F6BFFA1C42648A008BD53B /* Alamofire.framework in Frameworks */,
+				B4F6BFFE1C427069008BD53B /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 		B4D89D141C34EBB000790F7F = {
 			isa = PBXGroup;
 			children = (
+				B4F6BFFD1C427069008BD53B /* SwiftyJSON.framework */,
 				B4F6BFF81C426486008BD53B /* Alamofire.framework */,
 				B4D89D1F1C34EBB000790F7F /* better-bus */,
 				B4D89D371C34EBB100790F7F /* better-busTests */,
