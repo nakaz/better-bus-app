@@ -11,6 +11,37 @@ import Alamofire
 import SwiftyJSON
 
 class FirstViewController: UIViewController {
+  
+  @IBOutlet weak var inputstuff: UITextField!
+  
+  @IBOutlet weak var text: UILabel!
+  
+  @IBAction func enter(sender: AnyObject) {
+    let busId = Int(inputstuff.text!)
+    print(busId)
+    
+    Alamofire.request(.GET,  "https://calm-everglades-9373.herokuapp.com/vehicle", parameters: ["id": busId!])
+      .responseJSON { response in
+        switch response.result {
+        case .Success:
+          if let value = response.result.value {
+            let json = JSON(value)
+            let time:String! = json["vehicles"]["timestamp"][0].string
+            let vehicle = json["vehicles"]["vehicle"][0]
+            let lat:String! = vehicle["latitude"][0].string
+            let long:String! = vehicle["longitude"][0].string
+            let vehicleNum:String! = vehicle["number"][0].string
+            print(time, vehicleNum, "latitude : \(lat)", "longitude: \(long)")
+            let newValue = "located at \(lat) and \(long)"
+            print(newValue)
+            self.text.text = newValue
+          }
+        case .Failure(let error):
+          print(error);
+        }
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -24,27 +55,6 @@ class FirstViewController: UIViewController {
     print(helloWorld("Jesse"))
     print(helloWorld("Vic"))
     
-    Alamofire.request(.GET,  "https://calm-everglades-9373.herokuapp.com/vehicle", parameters: ["id": "302"])
-      .responseJSON { response in
-        switch response.result {
-        case .Success:
-          if let value = response.result.value {
-            let json = JSON(value)
-            let time = json["vehicles"]["timestamp"][0].string
-            let vehicle = json["vehicles"]["vehicle"][0]
-            let lat = vehicle["latitude"][0].string
-            let long = vehicle["longitude"][0].string
-            let vehicleNum = vehicle["number"][0].string
-            print(time, vehicleNum, "latitude : \(lat)", "longitude: \(long)")
-//            print("JSON: \(json)")
-          }
-        case .Failure(let error):
-          print(error);
-        }
-    
-//        if let JSON = response.result.value {
-//          print("JSON: \(JSON)")
-//        }
-      }
+
   }
 }
