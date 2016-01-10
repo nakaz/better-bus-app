@@ -2,3 +2,6 @@
 /playgroundfiles
 .env
 .DS_Store
+Cartfile
+Carthage/*
+Cartfile.*

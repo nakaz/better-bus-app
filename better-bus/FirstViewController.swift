@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class FirstViewController: UIViewController {
   override func viewDidLoad() {
@@ -21,8 +22,14 @@ class FirstViewController: UIViewController {
     print(helloWorld("Tony"))
     print(helloWorld("Jesse"))
     print(helloWorld("Vic"))
+    
+    Alamofire.request(.GET,  "https://calm-everglades-9373.herokuapp.com/arrivals/stop/296", parameters: ["foo": "bar"])
+      .responseJSON { response in
+        print(response.result)
+        
+        if let JSON = response.result.value {
+          print("JSON: \(JSON)")
+        }
+      }
   }
-
-
 }
-

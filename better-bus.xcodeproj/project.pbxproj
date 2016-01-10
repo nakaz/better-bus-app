@@ -14,6 +14,9 @@
 		B4D89D2C1C34EBB000790F7F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D89D2B1C34EBB000790F7F /* Images.xcassets */; };
 		B4D89D2F1C34EBB000790F7F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D89D2D1C34EBB000790F7F /* LaunchScreen.xib */; };
 		B4D89D3B1C34EBB100790F7F /* better_busTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D89D3A1C34EBB100790F7F /* better_busTests.swift */; };
+		B4F6BFF91C426486008BD53B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6BFF81C426486008BD53B /* Alamofire.framework */; };
+		B4F6BFFA1C42648A008BD53B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6BFF81C426486008BD53B /* Alamofire.framework */; };
+		B4F6BFFB1C42648A008BD53B /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4F6BFF81C426486008BD53B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +28,20 @@
 			remoteInfo = "better-bus";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B4F6BFFC1C42648A008BD53B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B4F6BFFB1C42648A008BD53B /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B4D89D1D1C34EBB000790F7F /* better-bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "better-bus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +55,7 @@
 		B4D89D341C34EBB100790F7F /* better-busTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "better-busTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D89D391C34EBB100790F7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4D89D3A1C34EBB100790F7F /* better_busTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = better_busTests.swift; sourceTree = "<group>"; };
+		B4F6BFF81C426486008BD53B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = lib/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F6BFF91C426486008BD53B /* Alamofire.framework in Frameworks */,
+				B4F6BFFA1C42648A008BD53B /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +81,7 @@
 		B4D89D141C34EBB000790F7F = {
 			isa = PBXGroup;
 			children = (
+				B4F6BFF81C426486008BD53B /* Alamofire.framework */,
 				B4D89D1F1C34EBB000790F7F /* better-bus */,
 				B4D89D371C34EBB100790F7F /* better-busTests */,
 				B4D89D1E1C34EBB000790F7F /* Products */,
@@ -125,6 +146,7 @@
 				B4D89D191C34EBB000790F7F /* Sources */,
 				B4D89D1A1C34EBB000790F7F /* Frameworks */,
 				B4D89D1B1C34EBB000790F7F /* Resources */,
+				B4F6BFFC1C42648A008BD53B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +370,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/lib",
+				);
 				INFOPLIST_FILE = "better-bus/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ifixpro.$(PRODUCT_NAME:rfc1034identifier)";
@@ -359,6 +386,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/lib",
+				);
 				INFOPLIST_FILE = "better-bus/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ifixpro.$(PRODUCT_NAME:rfc1034identifier)";
