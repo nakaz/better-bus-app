@@ -1,8 +1,8 @@
 # Better Bus App
 
-A remake of Honolulu's DaBus app using ~~native Swift~~ React-Native for client-side application and a Node.js server for back-end API requests.
+A remake of Honolulu's DaBus app using ~~native Swift~~ **React-Native** for client-side application and a **Node.js** server for back-end API requests.
 
-Update (21 Jan): Switched to React-Native as an easier transition to learning both React and Swift/Obj-C at the same time. Also will be able to build for iOS and not leave behind Android users behind. 
+*Update (01/21/2016)*: Switched to React-Native as an easier transition to learning both React and Swift/Obj-C at the same time. Also will be able to build for iOS and not leave behind Android users behind. 
 
 ### API Requests (Server)
 These are all `GET` HTTP Requests and will return a `JSON` file as a response.
