@@ -1,5 +1,4 @@
 var router = require('express').Router();
-var bodyParse = require('body-parser');
 var http = require('http');
 
 var BUS_KEY = process.env.DABUS_APP_KEY;
