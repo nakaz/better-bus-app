@@ -5,12 +5,15 @@ import FirstViewController from './components/FirstViewController';
 import SecondViewController from './components/SecondViewController';
 
 import React, {
-  AppRegistry,
-  Component,
+  Component
+} from 'react';
+
+import {
+    AppRegistry,
   TabBarIOS,
-  StyleSheet,
-  Text,
-  View
+    StyleSheet,
+    View,
+    Text,
 } from 'react-native';
 
 export default class BetterBusApp extends Component {

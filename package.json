@@ -7,8 +7,9 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "express": "^4.13.3",
-    "react-native": "^0.18.1",
+    "express": "^4.13.4",
+    "react": "^15.1.0",
+    "react-native": "^0.27.1",
     "xml2js": "^0.4.16"
   }
 }
