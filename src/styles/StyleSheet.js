@@ -2,7 +2,6 @@
 
 import React, {
   StyleSheet,
-  Component
 } from 'react-native';
 
 export const Views = StyleSheet.create({
