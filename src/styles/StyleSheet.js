@@ -14,5 +14,11 @@ export const Views = StyleSheet.create({
         backgroundColor: '#263238',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    input: {
+      backgroundColor: '#FFFFFF',
+      height: 60,
+      textAlign: 'center'
     }
+
 });
