@@ -20,8 +20,13 @@ export default class Arrivals{
         'Content-Type': 'application/json',
         'Origin': '',
       }
-    }).then((res) => {
-      console.log(res);
     })
+    // .then((res) => {
+    //   return res.json();
+    // })
+    // .then((data) => {
+    //   console.log(data.stopTimes.arrival[0])
+    //   return data;
+    // })
   }
  }
