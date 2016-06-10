@@ -10,6 +10,7 @@ import {
     View,
     Text,
     TextInput,
+    ListView,
 } from 'react-native';
 
 import {Views} from '../styles/StyleSheet';
@@ -19,7 +20,12 @@ import Arrivals from '../lib/Arrivals';
 export default class FirstViewController extends Component {
   constructor(props){
     super(props);
-    // this.state = {};
+    this.state = {
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      }),
+      loaded: false,
+    };
   }
   // componentDidMount(){
   //   console.log('loaded')
@@ -29,7 +35,18 @@ export default class FirstViewController extends Component {
     console.log('hello');
     const arrivals = new Arrivals('kahala mall');
     this.text = arrivals.load();
-    arrivals.getData(127);
+    // this.setState((state) => {
+    //   arrivals: arrivals.getData(127)
+    // })
+    // arrivals.getData(127);
+    arrivals.getData(127).then((res)=>{
+      return res.json()
+    }).then((data) => {
+      this.setState({
+        dataSource: data.stopTimes.arrival,
+        loaded: true
+      })
+    }).done();
   }
   // setInitialState(){
   //   return {
@@ -38,13 +55,41 @@ export default class FirstViewController extends Component {
   // }
 
   render() {
+    if (!this.state.loaded){
+      return this.renderLoadingView();
+    }
+
+    // let arrival = this.state.arrivals;
+    // return this.renderView(arrival);
+    console.log('render', this.state.dataSource);
     return (
-     <View style={Views.container}>
-       <Text style={Views.description}>
-         {this.text}
-       </Text>
-     </View>
-    );
+      <ListView
+        dataSource={this.state.dataSource}
+        renderRow={this.renderView}
+      />
+    )
+  }
+
+  renderLoadingView(){
+    return (
+      <View style={ Views.container }>
+        <Text>
+          Loading bus times...
+        </Text>
+      </View>
+    )
+  }
+
+  renderView(arrival){
+    return (
+      <View style={ Views.container }>
+        <Text style={Views.description}>Bus: {arrival.headsign[0]}</Text>
+        <Text style={Views.description}>Route: {arrival.route[0]}</Text>
+        <Text style={Views.description}>Arrives at: {arrival.stopTime[0]}</Text>
+        <Text style={Views.description}>ETA: {arrival.estimated[0]} minute</Text>
+
+      </View>
+   );
   }
   //
   // loadState(){
