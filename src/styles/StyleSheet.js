@@ -6,8 +6,9 @@ import React, {
 
 export const Views = StyleSheet.create({
   description: {
-        fontSize: 20,
-        color: '#80CBC4'
+        fontSize: 12,
+        color: '#80CBC4',
+        textAlign: 'left'
     },
     container: {
         flex: 1,
