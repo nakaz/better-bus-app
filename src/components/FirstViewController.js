@@ -43,7 +43,7 @@ export default class FirstViewController extends Component {
       return res.json()
     }).then((data) => {
       this.setState({
-        dataSource: data.stopTimes.arrival,
+        dataSource: this.state.dataSource.cloneWithRows(data.stopTimes.arrival),
         loaded: true
       })
     }).done();
@@ -66,6 +66,7 @@ export default class FirstViewController extends Component {
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderView}
+        style={Views.listView}
       />
     )
   }
@@ -80,13 +81,17 @@ export default class FirstViewController extends Component {
     )
   }
 
+  renderListView(){
+
+  }
+
   renderView(arrival){
     return (
       <View style={ Views.container }>
-        <Text style={Views.description}>Bus: {arrival.headsign[0]}</Text>
-        <Text style={Views.description}>Route: {arrival.route[0]}</Text>
-        <Text style={Views.description}>Arrives at: {arrival.stopTime[0]}</Text>
-        <Text style={Views.description}>ETA: {arrival.estimated[0]} minute</Text>
+        <Text style={Views.title}>{arrival.headsign}</Text>
+        <Text style={Views.description}>Route: {arrival.route}</Text>
+        <Text style={Views.description}>Arrives at: {arrival.stopTime}</Text>
+        <Text style={Views.description}>ETA: {arrival.estimated} minute</Text>
 
       </View>
    );
