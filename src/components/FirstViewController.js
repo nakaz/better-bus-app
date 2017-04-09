@@ -27,18 +27,11 @@ export default class FirstViewController extends Component {
       loaded: false,
     };
   }
-  // componentDidMount(){
-  //   console.log('loaded')
-  //   this.loadState();
-  // }
+
   componentDidMount(){
     console.log('hello');
     const arrivals = new Arrivals('kahala mall');
     this.text = arrivals.load();
-    // this.setState((state) => {
-    //   arrivals: arrivals.getData(127)
-    // })
-    // arrivals.getData(127);
     arrivals.getData(127).then((res)=>{
       return res.json()
     }).then((data) => {
@@ -48,11 +41,6 @@ export default class FirstViewController extends Component {
       })
     }).done();
   }
-  // setInitialState(){
-  //   return {
-  //     text: ''
-  //   }
-  // }
 
   render() {
     if (!this.state.loaded){

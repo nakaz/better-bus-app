@@ -21,12 +21,5 @@ export default class Arrivals{
         'Origin': '',
       }
     })
-    // .then((res) => {
-    //   return res.json();
-    // })
-    // .then((data) => {
-    //   console.log(data.stopTimes.arrival[0])
-    //   return data;
-    // })
   }
  }
