@@ -8,12 +8,15 @@ import {
   AppRegistry,
   StyleSheet,
   View,
+  ScrollView,
   Text,
   TextInput,
   ListView,
-  StatusBar,
-  Button
+  Button,
+  Keyboard,
 } from 'react-native';
+
+import KeyboardSpacer from 'react-native-keyboard-spacer'
 
 import {Views} from '../styles/StyleSheet';
 
@@ -41,7 +44,6 @@ export default class FirstViewController extends Component {
   }
 
   requestArrival() {
-    console.log('STATE', this.state.stop)
     ArrivalQuery(this.state.stop)
       .then(res => {
         return res.json();
@@ -56,30 +58,21 @@ export default class FirstViewController extends Component {
         this.props.navigator.push({
           component: SearchList,
           title: 'Search List',
-          passProps: {dataSource: this.state.dataSource, name: 'hello'}
+          passProps: { dataSource: this.state.dataSource }
         })
       });
   }
 
   render() {
-    // if (!this.state.loaded){
-      return this.stopPrompt();
-    // }
-
-    // return (
-    //   <View style={{flex: 0}}>
-    //     <ListView
-    //       dataSource={this.state.dataSource}
-    //       renderRow={this.renderView}
-    //       style={Views.listView}
-    //     />
-    //   </View>
-    // )
+    return this.stopPrompt();
   }
 
   stopPrompt(){
     return (
-      <View style={ Views.inputContainer }>
+      <ScrollView
+        contentContainerStyle={ Views.inputContainer }
+        scrollEnabled={false}
+      >
         <TextInput
           style={ Views.input }
           keyboardType="numbers-and-punctuation"
@@ -89,15 +82,13 @@ export default class FirstViewController extends Component {
           onSubmitEditing={this.requestArrival}
           returnKeyType='search'
           placeholder='Enter Bus Route'
+          enablesReturnKeyAutomatically={true}
+          clearButtonMode='while-editing'
         />
-      </View>
+        <KeyboardSpacer/>
+      </ScrollView>
     )
   }
-        // <Button
-        //   style={ Views.button }
-        //   onPress={this.requestArrival}
-        //   title="Locate!"
-        // />
 
   renderView(arrival){
     return (
