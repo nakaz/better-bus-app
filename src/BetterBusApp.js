@@ -8,13 +8,10 @@ import React, {
 } from 'react';
 
 import {
-  AppRegistry,
   StyleSheet,
   View,
-  StatusBar,
   NavigatorIOS,
   TabBarIOS,
-  Text,
 } from 'react-native';
 
 import {Views} from './styles/StyleSheet';

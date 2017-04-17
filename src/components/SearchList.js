@@ -3,14 +3,10 @@ import React, {
 } from 'react';
 
 import {
-  AppRegistry,
   StyleSheet,
   View,
   Text,
-  TextInput,
   ListView,
-  StatusBar,
-  Button
 } from 'react-native';
 
 import {Views} from '../styles/StyleSheet';
@@ -19,8 +15,6 @@ import ArrivalItem from './ArrivalItem';
 export default class SearchList extends Component {
   constructor(props){
     super(props)
-    console.log(this.props.dataSource)
-    console.log('tada')
   }
 
   renderView(arrival){
@@ -37,7 +31,6 @@ export default class SearchList extends Component {
           renderRow={this.renderView}
           style={Views.listView}
         />
-        <Text>{this.props.name}</Text>
       </View>
     )
   }

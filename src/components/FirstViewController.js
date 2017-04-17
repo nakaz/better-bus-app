@@ -5,15 +5,12 @@ import React, {
 } from 'react';
 
 import {
-  AppRegistry,
   StyleSheet,
   View,
   ScrollView,
   Text,
   TextInput,
   ListView,
-  Button,
-  Keyboard,
 } from 'react-native';
 
 import KeyboardSpacer from 'react-native-keyboard-spacer'
@@ -21,8 +18,6 @@ import KeyboardSpacer from 'react-native-keyboard-spacer'
 import {Views} from '../styles/StyleSheet';
 
 import ArrivalQuery from '../lib/Arrivals';
-import ArrivalItem from './ArrivalItem';
-
 import SearchList from './SearchList'
 
 export default class FirstViewController extends Component {
@@ -40,7 +35,6 @@ export default class FirstViewController extends Component {
   }
 
   componentDidMount(){
-    console.log('hi')
   }
 
   requestArrival() {
@@ -64,10 +58,6 @@ export default class FirstViewController extends Component {
   }
 
   render() {
-    return this.stopPrompt();
-  }
-
-  stopPrompt(){
     return (
       <ScrollView
         contentContainerStyle={ Views.inputContainer }
@@ -88,11 +78,5 @@ export default class FirstViewController extends Component {
         <KeyboardSpacer/>
       </ScrollView>
     )
-  }
-
-  renderView(arrival){
-    return (
-      <ArrivalItem arrival={arrival} />
-   );
   }
 }
