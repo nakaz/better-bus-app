@@ -5,29 +5,33 @@ import React, {
 } from 'react-native';
 
 export const Views = StyleSheet.create({
-  title: {
-   fontSize: 20,
-   color: '#EEE'
-  },
-  description: {
+  wrapper: {
     flex: 1,
-    fontSize: 16,
-    color: '#80CBC4',
+    paddingTop: 20,
+    paddingBottom: 49,
   },
   container: {
     backgroundColor: '#263238',
     justifyContent: 'center',
     alignItems: 'center'
   },
+  inputContainer: {
+    backgroundColor: 'white',
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   input: {
-    backgroundColor: '#FFFFFF',
-    height: 60,
+    backgroundColor: 'white',
+    height: 50,
     textAlign: 'center'
   },
+  button: {
+    backgroundColor: 'black',
+    height: 100,
+  },
   listView: {
-    paddingTop: 20,
-    paddingBottom: 20,
-
+    flex:0
   }
-
 });

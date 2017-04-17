@@ -11,11 +11,12 @@ import {
   AppRegistry,
   StyleSheet,
   View,
+  StatusBar,
   TabBarIOS,
   Text,
 } from 'react-native';
 
-import MenuBarIOS from './components/MenuBarIOS'
+import {Views} from './styles/StyleSheet';
 
 export default class BetterBusApp extends Component {
   constructor(props) {
@@ -32,14 +33,16 @@ export default class BetterBusApp extends Component {
         tintColor="#80CBC4"
         barTintColor="#263238">
           <TabBarIOS.Item
-              title="first"
+              title="Main View"
               selected={this.state.selectedTab === 'one'}
               onPress={() => {
                   this.setState({
                       selectedTab: 'one'
                   });
               }}>
-              <FirstViewController/>
+              <View style={ Views.wrapper }>
+                <FirstViewController/>
+              </View>
           </TabBarIOS.Item>
           <TabBarIOS.Item
               title="second"
@@ -56,8 +59,3 @@ export default class BetterBusApp extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-
-});
-

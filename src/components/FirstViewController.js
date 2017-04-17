@@ -5,17 +5,20 @@ import React, {
 } from 'react';
 
 import {
-    AppRegistry,
-    StyleSheet,
-    View,
-    Text,
-    TextInput,
-    ListView,
+  AppRegistry,
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  ListView,
+  StatusBar,
+  Button
 } from 'react-native';
 
 import {Views} from '../styles/StyleSheet';
 
-import Arrivals from '../lib/Arrivals';
+import ArrivalQuery from '../lib/Arrivals';
+import ArrivalItem from './ArrivalItem';
 
 export default class FirstViewController extends Component {
   constructor(props){
@@ -25,100 +28,71 @@ export default class FirstViewController extends Component {
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
       loaded: false,
+      stop: ''
     };
+
+    this.requestArrival = this.requestArrival.bind(this)
   }
 
   componentDidMount(){
-    console.log('hello');
-    const arrivals = new Arrivals('kahala mall');
-    this.text = arrivals.load();
-    arrivals.getData(127).then((res)=>{
-      return res.json()
-    }).then((data) => {
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(data.stopTimes.arrival),
-        loaded: true
+    console.log('hi')
+  }
+
+  requestArrival() {
+    console.log('STATE', this.state.stop)
+    ArrivalQuery(this.state.stop)
+      .then(res => {
+        return res.json();
       })
-    }).done();
+      .then(data => {
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(data.stopTimes.arrival),
+          loaded: true
+        })
+      }).done();
   }
 
   render() {
     if (!this.state.loaded){
-      return this.renderLoadingView();
+      return this.stopPrompt();
     }
 
-    // let arrival = this.state.arrivals;
-    // return this.renderView(arrival);
-    console.log('render', this.state.dataSource);
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderView}
-        style={Views.listView}
-      />
-    )
-  }
-
-  renderLoadingView(){
-    return (
-      <View style={ Views.container }>
-        <Text>
-          Loading bus times...
-        </Text>
+      <View style={{flex: 0}}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderView}
+          style={Views.listView}
+        />
       </View>
     )
   }
 
-  renderListView(){
-
+  stopPrompt(){
+    return (
+      <View style={ Views.inputContainer }>
+        <TextInput
+          style={ Views.input }
+          keyboardType="numbers-and-punctuation"
+          onChangeText={(stop) => {
+            this.setState({stop})
+          }}
+          onSubmitEditing={this.requestArrival}
+          returnKeyType='search'
+          placeholder='Enter Bus Route'
+        />
+      </View>
+    )
   }
+        // <Button
+        //   style={ Views.button }
+        //   onPress={this.requestArrival}
+        //   title="Locate!"
+        // />
 
   renderView(arrival){
     return (
-      <View style={ Views.container }>
-        <Text style={Views.title}>{arrival.headsign}</Text>
-        <Text style={Views.description}>Route: {arrival.route}</Text>
-        <Text style={Views.description}>Arrives at: {arrival.stopTime}</Text>
-        <Text style={Views.description}>ETA: {arrival.estimated} minute</Text>
-
-      </View>
+      <ArrivalItem arrival={arrival} />
    );
   }
-  //
-  // loadState(){
-  //   console.log('setting state')
-  //   this.state = {
-  //     text: 'hello'
-  //   }
-  //   console.log(this.state.text);
-  // }
-
-  // updateText(text){
-  //   console.log('changing');
-  //   this.setState((state) => {
-  //     return {
-  //       text: text
-  //     }
-  //   })
-  // }
-
-  // textValue(){
-  //   return this.state.text;
-  // }
-
-  // render() {
-  //   return (
-  //     <View style={Views.container}>
-  //       <TextInput
-  //         style={Views.input}
-  //         placehoder='Testing...'
-  //         onFocus={()=> console.log('focused')}
-  //         onChangeText={(text) => this.updateText(text)}
-  //       />
-  //       <Text style={Views.description}>
-  //         {this.textValue()}
-  //       </Text>
-  //     </View>
-  //   );
-  // }
 }
