@@ -2136,6 +2136,10 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
+react-native-keyboard-spacer@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-keyboard-spacer/-/react-native-keyboard-spacer-0.3.1.tgz#9580297ebfd078202dc4c65303d29cda35de67f1"
+
 react-native@0.41.2:
   version "0.41.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.41.2.tgz#c6f486b8450a9909e6fed2dfd2c2af946563bf4f"
