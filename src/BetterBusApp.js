@@ -12,6 +12,7 @@ import {
   StyleSheet,
   View,
   StatusBar,
+  NavigatorIOS,
   TabBarIOS,
   Text,
 } from 'react-native';
@@ -40,9 +41,13 @@ export default class BetterBusApp extends Component {
                       selectedTab: 'one'
                   });
               }}>
-              <View style={ Views.wrapper }>
-                <FirstViewController/>
-              </View>
+              <NavigatorIOS
+                style={ Views.wrapper }
+                initialRoute={{
+                  component: FirstViewController,
+                  title: 'BetterBusApp'
+                }}
+              />
           </TabBarIOS.Item>
           <TabBarIOS.Item
               title="second"

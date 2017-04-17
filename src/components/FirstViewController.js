@@ -20,6 +20,8 @@ import {Views} from '../styles/StyleSheet';
 import ArrivalQuery from '../lib/Arrivals';
 import ArrivalItem from './ArrivalItem';
 
+import SearchList from './SearchList'
+
 export default class FirstViewController extends Component {
   constructor(props){
     super(props);
@@ -49,23 +51,30 @@ export default class FirstViewController extends Component {
           dataSource: this.state.dataSource.cloneWithRows(data.stopTimes.arrival),
           loaded: true
         })
-      }).done();
+      })
+      .then(() => {
+        this.props.navigator.push({
+          component: SearchList,
+          title: 'Search List',
+          passProps: {dataSource: this.state.dataSource, name: 'hello'}
+        })
+      });
   }
 
   render() {
-    if (!this.state.loaded){
+    // if (!this.state.loaded){
       return this.stopPrompt();
-    }
+    // }
 
-    return (
-      <View style={{flex: 0}}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderView}
-          style={Views.listView}
-        />
-      </View>
-    )
+    // return (
+    //   <View style={{flex: 0}}>
+    //     <ListView
+    //       dataSource={this.state.dataSource}
+    //       renderRow={this.renderView}
+    //       style={Views.listView}
+    //     />
+    //   </View>
+    // )
   }
 
   stopPrompt(){
