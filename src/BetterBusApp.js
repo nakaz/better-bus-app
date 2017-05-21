@@ -31,7 +31,7 @@ export default class BetterBusApp extends Component {
         tintColor="#80CBC4"
         barTintColor="#263238">
           <TabBarIOS.Item
-              title="Main View"
+              title="Bus Stop"
               selected={this.state.selectedTab === 'one'}
               onPress={() => {
                   this.setState({
@@ -42,7 +42,7 @@ export default class BetterBusApp extends Component {
                 style={ Views.wrapper }
                 initialRoute={{
                   component: FirstViewController,
-                  title: 'BetterBusApp'
+                  title: 'Better Bus App'
                 }}
               />
           </TabBarIOS.Item>
@@ -55,7 +55,9 @@ export default class BetterBusApp extends Component {
                       selectedTab: 'two'
                   });
               }}>
-              <SecondViewController/>
+              <View style={ Views.wrapper }>
+                <SecondViewController/>
+              </View>
           </TabBarIOS.Item>
       </TabBarIOS>
     );
