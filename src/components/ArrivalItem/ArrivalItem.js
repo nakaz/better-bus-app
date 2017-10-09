@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text
+  Text,
+  TouchableHighlight
 } from 'react-native'
 
 import { Views } from './ArrivalItem.stylesheet';
 
-const ArrivalItem = ({ arrival }) => {
+const ArrivalItem = ({ arrival, onPress }) => {
   return (
-    <View style={ Views.container }>
-      <Text style={Views.title}>{arrival.headsign}</Text>
-      <Text style={Views.description}>Route: {arrival.route}</Text>
-      <Text style={Views.description}>Arrives at: {arrival.stopTime}</Text>
-      <Text style={Views.description}>ETA: {arrival.estimated} minute</Text>
-    </View>
+    <TouchableHighlight onPress={onPress}>
+      <View style={ Views.container }>
+        <Text style={Views.title}>{arrival.headsign}</Text>
+        <Text style={Views.description}>Route: {arrival.route}</Text>
+        <Text style={Views.description}>Arrives at: {arrival.stopTime}</Text>
+        <Text style={Views.description}>ETA: {arrival.estimated} minute</Text>
+      </View>
+    </TouchableHighlight>
   )
 }
 

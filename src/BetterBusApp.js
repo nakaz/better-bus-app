@@ -8,12 +8,10 @@ import React, {
 } from 'react';
 
 import {
-  AppRegistry,
   StyleSheet,
   View,
-  StatusBar,
+  NavigatorIOS,
   TabBarIOS,
-  Text,
 } from 'react-native';
 
 import {Views} from './styles/StyleSheet';
@@ -33,16 +31,20 @@ export default class BetterBusApp extends Component {
         tintColor="#80CBC4"
         barTintColor="#263238">
           <TabBarIOS.Item
-              title="Main View"
+              title="Bus Stop"
               selected={this.state.selectedTab === 'one'}
               onPress={() => {
                   this.setState({
                       selectedTab: 'one'
                   });
               }}>
-              <View style={ Views.wrapper }>
-                <FirstViewController/>
-              </View>
+              <NavigatorIOS
+                style={ Views.wrapper }
+                initialRoute={{
+                  component: FirstViewController,
+                  title: 'Better Bus App'
+                }}
+              />
           </TabBarIOS.Item>
           <TabBarIOS.Item
               title="second"
@@ -53,7 +55,9 @@ export default class BetterBusApp extends Component {
                       selectedTab: 'two'
                   });
               }}>
-              <SecondViewController/>
+              <View style={ Views.wrapper }>
+                <SecondViewController/>
+              </View>
           </TabBarIOS.Item>
       </TabBarIOS>
     );
