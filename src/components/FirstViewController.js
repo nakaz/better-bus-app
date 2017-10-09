@@ -44,7 +44,7 @@ export default class FirstViewController extends Component {
       })
       .then(data => {
         this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(data.stopTimes.arrival),
+          dataSource: this.state.dataSource.cloneWithRows(data.arrival),
           loaded: true
         })
       })
